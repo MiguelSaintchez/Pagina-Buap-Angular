@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AdministradoresService } from '../../services/administradores.service';
+declare var $:any;
 
 @Component({
   selector: 'app-registro-admin',
@@ -21,9 +23,14 @@ export class RegistroAdminComponent implements OnInit {
   public editar:boolean = false;
   public idUser: Number = 0;
 
-  constructor() { }
+  constructor(
+    private administradoresService: AdministradoresService,
+  ) { }
 
   ngOnInit(): void {
+    this.admin = this.administradoresService.esquemaAdmin();
+
+    console.log("datos del admin: ", this.admin)
   }
 
     //Funciones para password
@@ -37,6 +44,34 @@ export class RegistroAdminComponent implements OnInit {
       this.inputType_1 = 'password';
       this.hide_1 = false;
     }
+  }
+
+  public regresar(){
+
+  }
+  public registrar(){
+
+    //Validar
+    this.errors = [];
+
+    this.errors = this.administradoresService.validarAdmin(this.admin, this.editar);
+    if(!$.isEmptyObject(this.errors)){
+      return false;
+    }
+    
+    //Validar la contrasenia
+    if(this.admin.password == this.admin.confirmar_password){
+      //Entra a registrar
+    }
+    else{
+      alert("Las contraseñas no coinciden");
+      this.admin.password="";
+      this.admin.confirmar_password="";
+    }
+
+  }
+  public actualizar(){
+
   }
 
   showPwdConfirmar()

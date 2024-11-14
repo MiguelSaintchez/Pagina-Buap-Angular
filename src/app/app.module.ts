@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
+//Este import es para los servicios HTTP
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -37,7 +40,8 @@ import { RegistroMaestrosComponent } from './partials/registro-maestros/registro
     MatDividerModule,
     FormsModule,
     MatInputModule,
-    MatRadioModule
+    MatRadioModule,
+    HttpClientModule
     
   ],
   providers: [],
