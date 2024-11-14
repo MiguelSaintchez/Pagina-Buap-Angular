@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import { NavbarComponent } from './partials/navbar/navbar.component';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
     MatIconModule,
     MatDividerModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatRadioModule
     
   ],
   providers: [],
