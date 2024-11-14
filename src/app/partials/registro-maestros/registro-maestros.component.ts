@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-registro-maestros',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./registro-maestros.component.scss']
 })
 export class RegistroMaestrosComponent {
+  @Input() datos_user: string = ""
+  @Input() rol:string = ""
 
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 }
