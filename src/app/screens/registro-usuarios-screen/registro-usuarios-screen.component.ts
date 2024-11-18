@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatRadioChange } from '@angular/material/radio';
-//comment para probar github y dev branch
+//comment para probar github
 @Component({
   selector: 'app-registro-usuarios-screen',
   templateUrl: './registro-usuarios-screen.component.html',
