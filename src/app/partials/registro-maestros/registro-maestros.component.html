@@ -1,1 +1,28 @@
-<p>registro-maestros works!</p>
+<div class="wrapper">
+  <!--Englobar todo el formulario con la cabecera-->
+  <div class="section-registro">
+    <div class="body-registro">
+      <div class="row mt-3 mb-3">
+        <div class="form-group col-12">
+          <label class="title-user" for="tipo_usuario">
+            Ingresa los datos del maestro
+          </label>
+        </div>
+      </div>
+      <!--TODO: Aqui van todos los inputs para el formulario del maestro-->
+
+      <!--Select de Areas de Investigacion-->
+      <mat-form-field class="mat-input" appearance="outline">
+        <mat-label>Área de investigación</mat-label>
+        <mat-select [(ngModel)]="maestro.area_investigacion">
+          <mat-option *ngFor="let area of areas" [value]="area.viewValue">
+            {{ area.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div *ngIf="errors.area_investigacion" class="invalid-feedback">
+        {{ errors.area_investigacion }}
+      </div>
+    </div>
+  </div>
+</div>

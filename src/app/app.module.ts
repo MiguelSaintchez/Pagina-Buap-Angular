@@ -17,9 +17,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatInputModule} from '@angular/material/input';
 import { NavbarComponent } from './partials/navbar/navbar.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
+
 import { RegistroAdminComponent } from './partials/registro-admin/registro-admin.component';
 import { RegistroAlumnosComponent } from './partials/registro-alumnos/registro-alumnos.component';
 import { RegistroMaestrosComponent } from './partials/registro-maestros/registro-maestros.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +46,8 @@ import { RegistroMaestrosComponent } from './partials/registro-maestros/registro
     FormsModule,
     MatInputModule,
     MatRadioModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule
     
   ],
   providers: [],
