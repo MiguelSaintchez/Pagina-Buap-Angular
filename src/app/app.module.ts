@@ -19,6 +19,8 @@ import { NavbarComponent } from './partials/navbar/navbar.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 import { RegistroAdminComponent } from './partials/registro-admin/registro-admin.component';
@@ -34,7 +36,7 @@ import { RegistroMaestrosComponent } from './partials/registro-maestros/registro
     NavbarComponent,
     RegistroAdminComponent,
     RegistroAlumnosComponent,
-    RegistroMaestrosComponent,
+   RegistroMaestrosComponent
     
   ],
   imports: [
@@ -49,7 +51,9 @@ import { RegistroMaestrosComponent } from './partials/registro-maestros/registro
     MatRadioModule,
     HttpClientModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     
   ],
   providers: [],

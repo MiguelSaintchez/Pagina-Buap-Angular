@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { MaestrosService } from 'src/app/services/maestros.service';
+import { Router, ActivatedRoute } from '@angular/router';
+declare var $:any;
 
 @Component({
   selector: 'app-registro-maestros',
@@ -11,6 +14,18 @@ export class RegistroMaestrosComponent {
 
   public maestro:any= {};
   public errors:any={};
+
+    public hide_1: boolean = false;
+  public hide_2: boolean = false;
+ public inputType_1: string = 'password';
+  public inputType_2: string = 'password';
+  public token: string = "";
+  public editar:boolean = false;
+  public idUser: Number = 0;
+
+
+
+
 
    //Para el select
   public areas: any[] = [
@@ -35,9 +50,14 @@ export class RegistroMaestrosComponent {
     {value: '10', nombre: 'Administración de S.O.'},
   ];
 
-  constructor() { }
+  constructor(
+    private maestrosService: MaestrosService
+  ) { }
 
   ngOnInit(): void {
+        this.maestro = this.maestrosService.esquemaMaestro();
+
+    console.log("datos del admin: ", this.maestro)
   }
 
    public checkboxChange(event:any){
@@ -66,6 +86,68 @@ export class RegistroMaestrosComponent {
     }else{
       return false;
     }
+  }
+
+    //Funciones para password
+  showPassword()
+  {
+    if(this.inputType_1 == 'password'){
+      this.inputType_1 = 'text';
+      this.hide_1 = true;
+    }
+    else{
+      this.inputType_1 = 'password';
+      this.hide_1 = false;
+    }
+  }
+
+  public regresar(){
+
+  }
+  public registrar(){
+
+    //Validar
+    this.errors = [];
+
+    this.errors = this.maestrosService.validarMaestro(this.maestro, this.editar);
+    if(!$.isEmptyObject(this.errors)){
+      return false;
+    }
+    
+    //Validar la contrasenia
+    if(this.maestro.password == this.maestro.confirmar_password){
+      //Entra a registrar
+    }
+    else{
+      alert("Las contraseñas no coinciden");
+      this.maestro.password="";
+      this.maestro.confirmar_password="";
+    }
+
+  }
+  public actualizar(){
+
+  }
+
+  showPwdConfirmar()
+  {
+    if(this.inputType_2 == 'password'){
+      this.inputType_2 = 'text';
+      this.hide_2 = true;
+    }
+    else{
+      this.inputType_2 = 'password';
+      this.hide_2 = false;
+    }
+  }
+
+  //Función para detectar el cambio de fecha
+  public changeFecha(event :any){
+    console.log(event);
+    console.log(event.value.toISOString());
+
+    this.maestro.fecha_nacimiento = event.value.toISOString().split("T")[0];
+    console.log("Fecha: ", this.maestro.fecha_nacimiento);
   }
 
 
