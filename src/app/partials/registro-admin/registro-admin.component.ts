@@ -61,7 +61,22 @@ export class RegistroAdminComponent implements OnInit {
     
     //Validar la contrasenia
     if(this.admin.password == this.admin.confirmar_password){
-      //Entra a registrar
+      //Aquí se va a ejecutar la lógica de programación para registrar un usuario
+      this.administradoresService.registrarAdmin(this.admin).subscribe(
+        (response)=>{
+          //Aquí va la ejecución del servicio si todo es correcto
+          alert("Usuario registrado correctamente");
+          console.log("Usuario registrado: ", response);
+ //         if(this.token != ""){
+  //          this.router.navigate(["home"]);
+   //       }else{
+    //        this.router.navigate(["/"]);
+    //      }
+        }, (error)=>{
+          //Aquí se ejecuta el error
+          alert("No se pudo registrar usuario");
+        }
+      );
     }
     else{
       alert("Las contraseñas no coinciden");
