@@ -32,23 +32,35 @@
               data-bs-slide-to="2"
               aria-label="Slide 3"
             ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img
-                src="/assets/images/carousel_1.jpeg"
+                src="/assets/images/ImgPrograCode3.webp"
                 class="d-block img-slider"
               />
             </div>
             <div class="carousel-item">
               <img
-                src="assets/images/carousel_2.jpeg"
+                src="assets/images/ImgPrograCode2.webp"
                 class="d-block img-slider"
               />
             </div>
             <div class="carousel-item">
               <img
-                src="assets/images/carousel_3.jpeg"
+                src="assets/images/ImgPrograCode4.webp"
+                class="d-block img-slider"
+              />
+            </div>
+            <div class="carousel-item">
+              <img
+                src="assets/images/ImgPrograCode.webp"
                 class="d-block img-slider"
               />
             </div>
@@ -104,17 +116,14 @@
               <!--Formulario del admin-->
               <section class="registro-admin" *ngIf="isAdmin">
                 <app-registro-admin></app-registro-admin>
-                <!--<app-registro-admin [rol]="tipo_user" [datos_user]="user"></app-registro-admin>-->
               </section>
               <!-- Formulario del alumno -->
               <section class="registro-alumnos" *ngIf="isAlumno">
                 <app-registro-alumnos></app-registro-alumnos>
-                <!--<app-registro-alumnos [rol]="tipo_user" [datos_user]="user"></app-registro-alumnos>-->
               </section>
               <!-- Formulario del maestro -->
               <section class="registro-maestros" *ngIf="isMaestro">
                 <app-registro-maestros></app-registro-maestros>
-                <!--<app-registro-maestros [rol]="tipo_user" [datos_user]="user"></app-registro-maestros> -->
               </section>
             </section>
           </div>
