@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AdministradoresService } from '../../services/administradores.service';
+import { Router } from '@angular/router';
 declare var $:any;
 
 @Component({
@@ -25,6 +26,7 @@ export class RegistroAdminComponent implements OnInit {
 
   constructor(
     private administradoresService: AdministradoresService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -67,11 +69,11 @@ export class RegistroAdminComponent implements OnInit {
           //Aquí va la ejecución del servicio si todo es correcto
           alert("Usuario registrado correctamente");
           console.log("Usuario registrado: ", response);
- //         if(this.token != ""){
-  //          this.router.navigate(["home"]);
-   //       }else{
-    //        this.router.navigate(["/"]);
-    //      }
+          if(this.token != ""){
+            this.router.navigate(["home"]);
+          }else{
+           this.router.navigate(["/"]);
+          }
         }, (error)=>{
           //Aquí se ejecuta el error
           alert("No se pudo registrar usuario");
