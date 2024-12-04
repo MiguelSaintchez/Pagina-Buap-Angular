@@ -9,7 +9,8 @@ declare var $:any;
   styleUrls: ['./registro-admin.component.scss']
 })
 export class RegistroAdminComponent implements OnInit {
-  @Input() datos_user: string = ""
+
+  @Input() datos_user: any = ""
   @Input() rol:string = ""
 
 //Para contraseñas
@@ -22,7 +23,7 @@ export class RegistroAdminComponent implements OnInit {
   public token: string = "";
   public errors:any={};
   public editar:boolean = false;
-  public idUser: Number = 0;
+  //public idUser: Number = 0;
 
   constructor(
     private administradoresService: AdministradoresService,
@@ -31,6 +32,8 @@ export class RegistroAdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.admin = this.administradoresService.esquemaAdmin();
+
+    this.admin.rol = this.rol;
 
     console.log("datos del admin: ", this.admin)
   }
